@@ -1,55 +1,61 @@
 import React from 'react';
+import { Search } from 'lucide-react';
 
 export function ChatSidebar({ contacts, selectedId, onSelectContact }) {
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 flex flex-col h-screen overflow-hidden">
-      {/* Sidebar Header */}
-      <div className="p-4 border-b border-gray-200 flex-shrink-0">
-        <div className="flex items-center justify-between mb-4">
-          <h1 className="text-2xl font-bold text-gray-800">Messages</h1>
-          <button className="text-gray-400 hover:text-gray-600">✎</button>
+    <div className="w-80 bg-white border-r border-gray-200 flex flex-col h-full z-20 relative">
+      
+      {/* [BUG - SPACING] 'p-0' removes breathing room, making content touch borders */}
+      {/* [FIX] <div className="p-4 border-b border-gray-200 bg-gray-50"> */}
+      <div className="p-0 border-b border-gray-200 bg-gray-50">
+        <h1 className="text-2xl font-extrabold text-gray-800 mb-4 tracking-tight">Chats</h1>
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search messages..."
+            className="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          />
+          <Search className="absolute left-3 top-2.5 text-gray-400" size={18} />
         </div>
-        <input 
-          type="text" 
-          placeholder="Search conversations..." 
-          className="w-full bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
       </div>
 
-      {/* Contacts List */}
-      <div className="flex-1 overflow-y-auto">
+      {/* [BUG - SPACING] Negative margin pulls the list up, overlapping the search bar */}
+      {/* [FIX] <div className="flex-1 overflow-y-auto custom-scrollbar"> */}
+      <div className="flex-1 overflow-y-auto custom-scrollbar -mt-10">
         {contacts.map((contact) => (
-          <button
+          <div
             key={contact.id}
             onClick={() => onSelectContact(contact.id)}
-            className={`w-full p-4 border-b border-gray-100 flex items-center space-x-3 hover:bg-gray-50 transition ${
-              selectedId === contact.id ? 'bg-indigo-50' : ''
+            className={`flex items-center gap-3 p-4 cursor-pointer hover:bg-gray-50 transition-all duration-200 border-l-4 ${
+              selectedId === contact.id
+                ? 'bg-blue-50 border-blue-500'
+                : 'border-transparent'
             }`}
           >
-            <div className={`w-12 h-12 rounded-full ${contact.color} flex items-center justify-center text-white font-bold flex-shrink-0`}>
-              {contact.avatar}
+            <div className="relative flex-shrink-0">
+              <img
+                src={contact.avatar}
+                alt={contact.name}
+                className="w-12 h-12 rounded-full object-cover shadow-sm"
+              />
+              {contact.online && (
+                <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full ring-1 ring-white"></span>
+              )}
             </div>
-            <div className="flex-1 min-w-0 text-left">
-              <p className="font-semibold text-gray-800 truncate">{contact.name}</p>
-              <p className="text-sm text-gray-500 truncate">{contact.lastMessage}</p>
-              <span className="text-xs text-gray-400">{contact.lastTime}</span>
+            <div className="flex-1 min-w-0">
+              <div className="flex justify-between items-baseline mb-1">
+                <h3 className={`font-semibold truncate ${selectedId === contact.id ? 'text-blue-700' : 'text-gray-900'}`}>
+                  {contact.name}
+                </h3>
+                <span className="text-xs text-gray-400 font-medium">12:30</span>
+              </div>
+              <p className="text-sm text-gray-500 truncate">
+                {contact.messages[contact.messages.length - 1]?.text || 'No messages yet'}
+              </p>
             </div>
-            {contact.unread && (
-              <span className="bg-indigo-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0">
-                {contact.unread}
-              </span>
-            )}
-          </button>
+          </div>
         ))}
       </div>
-
-      {/* Sidebar Footer */}
-      <div className="p-4 border-t border-gray-200 flex-shrink-0">
-        <button className="w-full flex items-center justify-center space-x-2 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-50 rounded-lg transition">
-          <span className="text-xl">⚙️</span>
-          <span className="font-medium">Settings</span>
-        </button>
-      </div>
-    </aside>
+    </div>
   );
 }

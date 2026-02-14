@@ -1,24 +1,45 @@
 import React from 'react';
+import { Phone, Video, MoreVertical } from 'lucide-react';
 
 export function ChatHeader({ contact }) {
   return (
-    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 flex-shrink-0 z-10">
-      <div className="flex items-center space-x-3">
-        <div className={`w-10 h-10 rounded-full ${contact.color} flex items-center justify-center text-white font-bold`}>
-          {contact.avatar}
+    // [BUG - LAYERS] '-z-10' puts the header behind the main container background
+    // [FIX] <div className="h-16 px-6 flex items-center justify-between bg-white border-b border-gray-200 shadow-sm z-10 relative">
+    <div className="h-16 px-6 flex items-center justify-between bg-white border-b border-gray-200 shadow-sm -z-10 relative">
+      
+      <div className="flex items-center gap-3">
+        <div className="relative">
+          <img
+            src={contact.avatar}
+            alt={contact.name}
+            className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
+          />
+          {contact.online && (
+            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+          )}
         </div>
         <div>
-          <h2 className="font-bold text-gray-800">{contact.name}</h2>
-          <div className="flex items-center text-xs text-green-500">
-            <span className="w-2 h-2 bg-green-500 rounded-full mr-1"></span> Online
-          </div>
+          {/* [BUG - COLOR] 'text-white' on white background causes zero contrast (invisible text) */}
+          {/* [FIX] <h2 className="text-lg font-bold text-gray-800 leading-tight">{contact.name}</h2> */}
+          <h2 className="text-lg font-bold text-white leading-tight">{contact.name}</h2>
+          
+          <p className="text-xs text-gray-500 font-medium">
+            {contact.online ? 'Online' : 'Offline'}
+          </p>
         </div>
       </div>
-      <div className="flex items-center space-x-4">
-        <button className="text-gray-400 hover:text-gray-600 text-xl">📞</button>
-        <button className="text-gray-400 hover:text-gray-600 text-xl">📹</button>
-        <button className="text-gray-400 hover:text-gray-600">⋮</button>
+
+      <div className="flex items-center gap-4 text-gray-400">
+        <button className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:text-blue-500">
+          <Phone size={20} />
+        </button>
+        <button className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:text-blue-500">
+          <Video size={20} />
+        </button>
+        <button className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:text-gray-600">
+          <MoreVertical size={20} />
+        </button>
       </div>
-    </header>
+    </div>
   );
 }

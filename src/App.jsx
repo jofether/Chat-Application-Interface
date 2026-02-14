@@ -4,66 +4,66 @@ import { ChatHeader } from './components/ChatHeader';
 import { MessageBubble } from './components/MessageBubble';
 import { MessageInput } from './components/MessageInput';
 import { EmptyChatState } from './components/EmptyChatState';
-import { contactsData } from './data/contacts';
+import { contacts } from './data/contacts';
 
 function App() {
-  const [selectedContactId, setSelectedContactId] = useState(1);
-  const [messages, setMessages] = useState(
-    contactsData.reduce((acc, contact) => {
-      acc[contact.id] = contact.messages;
-      return acc;
-    }, {})
+  const [selectedContactId, setSelectedContactId] = useState(contacts[0].id);
+  const [chatHistory, setChatHistory] = useState(
+    contacts.reduce((acc, contact) => ({
+      ...acc,
+      [contact.id]: contact.messages || []
+    }), {})
   );
 
-  const selectedContact = contactsData.find(c => c.id === selectedContactId);
+  const selectedContact = contacts.find(c => c.id === selectedContactId);
+  const messages = chatHistory[selectedContactId] || [];
 
-  const handleSendMessage = (content) => {
+  const handleSendMessage = (text) => {
     const newMessage = {
-      id: (messages[selectedContactId]?.length || 0) + 1,
-      content,
-      isOwn: true,
-      time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
-      avatar: 'ME'
+      id: Date.now(),
+      text,
+      sender: 'me',
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
-    
-    setMessages(prev => ({
+
+    setChatHistory(prev => ({
       ...prev,
       [selectedContactId]: [...(prev[selectedContactId] || []), newMessage]
     }));
   };
 
   return (
-    <div className="flex h-screen bg-white font-sans overflow-hidden">
-      {/* Sidebar */}
-      <ChatSidebar 
-        contacts={contactsData}
+    // [BUG - LAYOUT] 'block' prevents the sidebar and chat from sitting side-by-side
+    // [FIX] <div className="flex h-screen bg-gray-100 font-sans overflow-hidden">
+    <div className="block h-screen bg-gray-100 font-sans overflow-hidden">
+      
+      <ChatSidebar
+        contacts={contacts}
         selectedId={selectedContactId}
         onSelectContact={setSelectedContactId}
       />
-
-      {/* Main Chat Area */}
-      {selectedContact ? (
-        <div className="flex-1 flex flex-col h-screen overflow-hidden">
-          {/* Header */}
-          <ChatHeader contact={selectedContact} />
-
-          {/* Messages */}
-          <main className="flex-1 overflow-y-auto p-6 bg-gray-50 space-y-6">
-            {messages[selectedContactId]?.map((message) => (
-              <MessageBubble 
-                key={message.id} 
-                message={message} 
-                isOwn={message.isOwn}
-              />
-            ))}
-          </main>
-
-          {/* Input */}
-          <MessageInput onSendMessage={handleSendMessage} />
-        </div>
-      ) : (
-        <EmptyChatState />
-      )}
+      
+      {/* [BUG - TYPO] 'overlfow-hidden' is misspelled, breaking overflow handling */}
+      {/* [FIX] <div className="flex-1 flex flex-col bg-white shadow-xl relative z-0 overflow-hidden"> */}
+      <div className="flex-1 flex flex-col bg-white shadow-xl relative z-0 overlfow-hidden">
+        {selectedContact ? (
+          <>
+            <ChatHeader contact={selectedContact} />
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
+              {messages.map((msg) => (
+                <MessageBubble 
+                  key={msg.id} 
+                  message={msg} 
+                  isMe={msg.sender === 'me'} 
+                />
+              ))}
+            </div>
+            <MessageInput onSendMessage={handleSendMessage} />
+          </>
+        ) : (
+          <EmptyChatState />
+        )}
+      </div>
     </div>
   );
 }
