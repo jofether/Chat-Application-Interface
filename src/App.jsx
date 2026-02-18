@@ -33,8 +33,6 @@ function App() {
   };
 
   return (
-    // [BUG - LAYOUT] 'block' prevents the sidebar and chat from sitting side-by-side
-    // [FIX] <div className="flex h-screen bg-gray-100 font-sans overflow-hidden">
     <div className="block h-screen bg-gray-100 font-sans overflow-hidden">
       
       <ChatSidebar
@@ -43,8 +41,6 @@ function App() {
         onSelectContact={setSelectedContactId}
       />
       
-      {/* [BUG - TYPO] 'overlfow-hidden' is misspelled, breaking overflow handling */}
-      {/* [FIX] <div className="flex-1 flex flex-col bg-white shadow-xl relative z-0 overflow-hidden"> */}
       <div className="flex-1 flex flex-col bg-white shadow-xl relative z-0 overlfow-hidden">
         {selectedContact ? (
           <>

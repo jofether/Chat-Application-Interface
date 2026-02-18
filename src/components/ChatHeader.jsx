@@ -2,8 +2,6 @@ import React from 'react';
 
 export function ChatHeader({ contact }) {
   return (
-    // [BUG - LAYERS] '-z-10' puts the header behind the main container background
-    // [FIX] <div className="h-16 px-6 flex items-center justify-between bg-white border-b border-gray-200 shadow-sm z-10 relative">
     <div className="h-16 px-6 flex items-center justify-between bg-white border-b border-gray-200 shadow-sm -z-10 relative">
       
       <div className="flex items-center gap-3">
@@ -18,8 +16,6 @@ export function ChatHeader({ contact }) {
           )}
         </div>
         <div>
-          {/* [BUG - COLOR] 'text-white' on white background causes zero contrast (invisible text) */}
-          {/* [FIX] <h2 className="text-lg font-bold text-gray-800 leading-tight">{contact.name}</h2> */}
           <h2 className="text-lg font-bold text-white leading-tight">{contact.name}</h2>
           
           <p className="text-xs text-gray-500 font-medium">

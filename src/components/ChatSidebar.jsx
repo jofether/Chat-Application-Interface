@@ -3,9 +3,6 @@ import React from 'react';
 export function ChatSidebar({ contacts, selectedId, onSelectContact }) {
   return (
     <div className="w-80 bg-white border-r border-gray-200 flex flex-col h-full z-20 relative">
-      
-      {/* [BUG - SPACING] 'p-0' removes breathing room, making content touch borders */}
-      {/* [FIX] <div className="p-4 border-b border-gray-200 bg-gray-50"> */}
       <div className="p-0 border-b border-gray-200 bg-gray-50">
         <h1 className="text-2xl font-extrabold text-gray-800 mb-4 tracking-tight">Chats</h1>
         <div className="relative">
@@ -18,8 +15,6 @@ export function ChatSidebar({ contacts, selectedId, onSelectContact }) {
         </div>
       </div>
 
-      {/* [BUG - SPACING] Negative margin pulls the list up, overlapping the search bar */}
-      {/* [FIX] <div className="flex-1 overflow-y-auto custom-scrollbar"> */}
       <div className="flex-1 overflow-y-auto custom-scrollbar -mt-10">
         {contacts.map((contact) => (
           <div

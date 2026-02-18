@@ -36,11 +36,6 @@ export function MessageInput({ onSendMessage }) {
       <button
         type="submit"
         disabled={!message.trim()}
-        // [BUG - TYPO] 'rounded-ful' is invalid class
-        // [FIX] className="p-3 bg-blue-500 text-white rounded-full ...
-        
-        // [BUG - LAYERS] 'fixed top-0' rips element from normal flow to top of viewport
-        // [FIX] remove 'fixed top-0 right-0'
         className="p-3 bg-blue-500 text-white rounded-ful hover:bg-blue-600 transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 fixed top-0 right-0 text-lg"
       >
         ✈️
