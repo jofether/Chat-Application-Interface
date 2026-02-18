@@ -1,5 +1,4 @@
 import React from 'react';
-import { Phone, Video, MoreVertical } from 'lucide-react';
 
 export function ChatHeader({ contact }) {
   return (
@@ -30,14 +29,14 @@ export function ChatHeader({ contact }) {
       </div>
 
       <div className="flex items-center gap-4 text-gray-400">
-        <button className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:text-blue-500">
-          <Phone size={20} />
+        <button className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:text-blue-500 text-xl">
+          📞
         </button>
-        <button className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:text-blue-500">
-          <Video size={20} />
+        <button className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:text-blue-500 text-xl">
+          🎥
         </button>
-        <button className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:text-gray-600">
-          <MoreVertical size={20} />
+        <button className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:text-gray-600 text-xl">
+          ⋯
         </button>
       </div>
     </div>
