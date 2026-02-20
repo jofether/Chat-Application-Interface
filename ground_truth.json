@@ -1,0 +1,155 @@
+{
+  "repository": "Chat Application Interface",
+  "bugs": [
+    {
+      "bug_category": "Layout",
+      "bug_type": "flexbox",
+      "file_modified": "src/App.jsx",
+      "line_number": 35,
+      "clean_code": "<div className=\"flex h-screen bg-white font-sans overflow-hidden\">",
+      "buggy_code": "<div className=\"block h-screen bg-gray-100 font-sans overflow-hidden\">",
+      "css_selector": ".app-container",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Layers",
+      "bug_type": "z-index",
+      "file_modified": "src/App.jsx",
+      "line_number": 43,
+      "clean_code": "<div className=\"flex-1 flex flex-col h-screen overflow-hidden\">",
+      "buggy_code": "<div className=\"flex-1 flex flex-col bg-white shadow-xl relative z-0 overlfow-hidden\">",
+      "css_selector": ".chat-area",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Typo",
+      "bug_type": "overflow",
+      "file_modified": "src/App.jsx",
+      "line_number": 43,
+      "clean_code": "<div className=\"flex-1 flex flex-col h-screen overflow-hidden\">",
+      "buggy_code": "<div className=\"flex-1 flex flex-col bg-white shadow-xl relative z-0 overlfow-hidden\">",
+      "css_selector": ".chat-area",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Layers",
+      "bug_type": "z-index",
+      "file_modified": "src/components/ChatHeader.jsx",
+      "line_number": 5,
+      "clean_code": "<header className=\"h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 flex-shrink-0 z-10\">",
+      "buggy_code": "<div className=\"h-16 px-6 flex items-center justify-between bg-white border-b border-gray-200 shadow-sm -z-10 relative\">",
+      "css_selector": ".chat-header",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Color",
+      "bug_type": "text-color",
+      "file_modified": "src/components/ChatHeader.jsx",
+      "line_number": 21,
+      "clean_code": "<h2 className=\"font-bold text-gray-800\">{contact.name}</h2>",
+      "buggy_code": "<h2 className=\"text-lg font-bold text-white leading-tight\">{contact.name}</h2>",
+      "css_selector": ".contact-name",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Layout",
+      "bug_type": "width",
+      "file_modified": "src/components/ChatSidebar.jsx",
+      "line_number": 5,
+      "clean_code": "<aside className=\"w-64 bg-white border-r border-gray-200 flex flex-col h-screen overflow-hidden\">",
+      "buggy_code": "<div className=\"w-80 bg-white border-r border-gray-200 flex flex-col h-full z-20 relative\">",
+      "css_selector": ".chat-sidebar",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Spacing",
+      "bug_type": "padding",
+      "file_modified": "src/components/ChatSidebar.jsx",
+      "line_number": 6,
+      "clean_code": "<div className=\"p-4 border-b border-gray-200 flex-shrink-0\">",
+      "buggy_code": "<div className=\"p-0 border-b border-gray-200 bg-gray-50\">",
+      "css_selector": ".sidebar-header",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Spacing",
+      "bug_type": "margin",
+      "file_modified": "src/components/ChatSidebar.jsx",
+      "line_number": 19,
+      "clean_code": "<div className=\"flex-1 overflow-y-auto\">",
+      "buggy_code": "<div className=\"flex-1 overflow-y-auto custom-scrollbar -mt-10\">",
+      "css_selector": ".contacts-list",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Layout",
+      "bug_type": "flexbox",
+      "file_modified": "src/components/MessageBubble.jsx",
+      "line_number": 5,
+      "clean_code": "<div className={`flex ${alignment}`}>",
+      "buggy_code": "<div className={`grid ${isMe ? 'justify-end' : 'justify-start'} mb-4 group`}>",
+      "css_selector": ".message-bubble",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "bug_category": "Color",
+      "bug_type": "background-color",
+      "file_modified": "src/components/MessageBubble.jsx",
+      "line_number": 11,
+      "clean_code": "const bgColor = isOwn ? 'bg-indigo-600 text-white' : 'bg-white border border-gray-200 text-gray-800';",
+      "buggy_code": "            ? 'bg-yellow-100 text-white rounded-br-sm'",
+      "css_selector": ".message-content",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    }
+  ]
+}
