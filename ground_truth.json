@@ -2,6 +2,7 @@
   "repository": "Chat Application Interface",
   "bugs": [
     {
+      "comment": "Bug #1 - flexbox",
       "bug_category": "Layout",
       "bug_type": "flexbox",
       "file_modified": "src/App.jsx",
@@ -12,11 +13,12 @@
       "bounding_box": {
         "x": 0,
         "y": 0,
-        "width": 0,
-        "height": 0
+        "width": 1280,
+        "height": 720
       }
     },
     {
+      "comment": "Bug #2 - z-index",
       "bug_category": "Layers",
       "bug_type": "z-index",
       "file_modified": "src/App.jsx",
@@ -26,12 +28,13 @@
       "css_selector": ".chat-area",
       "bounding_box": {
         "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "y": 720,
+        "width": 1280,
+        "height": 366
       }
     },
     {
+      "comment": "Bug #3 - overflow",
       "bug_category": "Typo",
       "bug_type": "overflow",
       "file_modified": "src/App.jsx",
@@ -41,12 +44,13 @@
       "css_selector": ".chat-area",
       "bounding_box": {
         "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "y": 720,
+        "width": 1280,
+        "height": 366
       }
     },
     {
+      "comment": "Bug #4 - z-index",
       "bug_category": "Layers",
       "bug_type": "z-index",
       "file_modified": "src/components/ChatHeader.jsx",
@@ -56,12 +60,13 @@
       "css_selector": ".chat-header",
       "bounding_box": {
         "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "y": 720,
+        "width": 1280,
+        "height": 64
       }
     },
     {
+      "comment": "Bug #5 - text-color",
       "bug_category": "Color",
       "bug_type": "text-color",
       "file_modified": "src/components/ChatHeader.jsx",
@@ -70,13 +75,14 @@
       "buggy_code": "<h2 className=\"text-lg font-bold text-white leading-tight\">{contact.name}</h2>",
       "css_selector": ".contact-name",
       "bounding_box": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 76,
+        "y": 732,
+        "width": 77,
+        "height": 23
       }
     },
     {
+      "comment": "Bug #6 - width",
       "bug_category": "Layout",
       "bug_type": "width",
       "file_modified": "src/components/ChatSidebar.jsx",
@@ -87,11 +93,12 @@
       "bounding_box": {
         "x": 0,
         "y": 0,
-        "width": 0,
-        "height": 0
+        "width": 320,
+        "height": 720
       }
     },
     {
+      "comment": "Bug #7 - padding",
       "bug_category": "Spacing",
       "bug_type": "padding",
       "file_modified": "src/components/ChatSidebar.jsx",
@@ -102,11 +109,12 @@
       "bounding_box": {
         "x": 0,
         "y": 0,
-        "width": 0,
-        "height": 0
+        "width": 319,
+        "height": 86
       }
     },
     {
+      "comment": "Bug #8 - margin",
       "bug_category": "Spacing",
       "bug_type": "margin",
       "file_modified": "src/components/ChatSidebar.jsx",
@@ -116,12 +124,13 @@
       "css_selector": ".contacts-list",
       "bounding_box": {
         "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "y": 46,
+        "width": 319,
+        "height": 674
       }
     },
     {
+      "comment": "Bug #9 - flexbox",
       "bug_category": "Layout",
       "bug_type": "flexbox",
       "file_modified": "src/components/MessageBubble.jsx",
@@ -130,13 +139,14 @@
       "buggy_code": "<div className={`grid ${isMe ? 'justify-end' : 'justify-start'} mb-4 group`}>",
       "css_selector": ".message-bubble",
       "bounding_box": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 16,
+        "y": 800,
+        "width": 1248,
+        "height": 26
       }
     },
     {
+      "comment": "Bug #10 - background-color",
       "bug_category": "Color",
       "bug_type": "background-color",
       "file_modified": "src/components/MessageBubble.jsx",
@@ -145,10 +155,10 @@
       "buggy_code": "            ? 'bg-yellow-100 text-white rounded-br-sm'",
       "css_selector": ".message-content",
       "bounding_box": {
-        "x": 0,
-        "y": 0,
-        "width": 0,
-        "height": 0
+        "x": 16,
+        "y": 800,
+        "width": 42,
+        "height": 26
       }
     }
   ]
