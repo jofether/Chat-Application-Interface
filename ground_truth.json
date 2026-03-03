@@ -9,7 +9,7 @@
       "line_number": 35,
       "clean_code": "<div className=\"flex h-screen bg-white font-sans overflow-hidden\">",
       "buggy_code": "<div className=\"block h-screen bg-gray-100 font-sans overflow-hidden\">",
-      "css_selector": ".app-container",
+      "css_selector": "div.h-screen.font-sans.overflow-hidden",
       "bounding_box": {
         "x": 0,
         "y": 0,
@@ -25,12 +25,12 @@
       "line_number": 43,
       "clean_code": "<div className=\"flex-1 flex flex-col h-screen overflow-hidden\">",
       "buggy_code": "<div className=\"flex-1 flex flex-col bg-white shadow-xl relative z-0 overlfow-hidden\">",
-      "css_selector": ".chat-area",
+      "css_selector": "div.flex-1.flex-col",
       "bounding_box": {
-        "x": 0,
-        "y": 720,
-        "width": 1280,
-        "height": 366
+        "x": 320,
+        "y": 0,
+        "width": 960,
+        "height": 720
       }
     },
     {
@@ -41,12 +41,12 @@
       "line_number": 43,
       "clean_code": "<div className=\"flex-1 flex flex-col h-screen overflow-hidden\">",
       "buggy_code": "<div className=\"flex-1 flex flex-col bg-white shadow-xl relative z-0 overlfow-hidden\">",
-      "css_selector": ".chat-area",
+      "css_selector": "div.flex-1.flex-col",
       "bounding_box": {
-        "x": 0,
-        "y": 720,
-        "width": 1280,
-        "height": 366
+        "x": 320,
+        "y": 0,
+        "width": 960,
+        "height": 720
       }
     },
     {
@@ -57,11 +57,11 @@
       "line_number": 5,
       "clean_code": "<header className=\"h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 flex-shrink-0 z-10\">",
       "buggy_code": "<div className=\"h-16 px-6 flex items-center justify-between bg-white border-b border-gray-200 shadow-sm -z-10 relative\">",
-      "css_selector": ".chat-header",
+      "css_selector": "div.flex-1 > div.border-b:first-child",
       "bounding_box": {
-        "x": 0,
-        "y": 720,
-        "width": 1280,
+        "x": 320,
+        "y": 0,
+        "width": 960,
         "height": 64
       }
     },
@@ -73,12 +73,12 @@
       "line_number": 21,
       "clean_code": "<h2 className=\"font-bold text-gray-800\">{contact.name}</h2>",
       "buggy_code": "<h2 className=\"text-lg font-bold text-white leading-tight\">{contact.name}</h2>",
-      "css_selector": ".contact-name",
+      "css_selector": "div.flex-1 h2",
       "bounding_box": {
-        "x": 76,
-        "y": 732,
-        "width": 77,
-        "height": 23
+        "x": 400,
+        "y": 16,
+        "width": 200,
+        "height": 32
       }
     },
     {
@@ -89,7 +89,7 @@
       "line_number": 5,
       "clean_code": "<aside className=\"w-64 bg-white border-r border-gray-200 flex flex-col h-screen overflow-hidden\">",
       "buggy_code": "<div className=\"w-80 bg-white border-r border-gray-200 flex flex-col h-full z-20 relative\">",
-      "css_selector": ".chat-sidebar",
+      "css_selector": "div.border-r.flex-col.h-full, aside",
       "bounding_box": {
         "x": 0,
         "y": 0,
@@ -105,7 +105,7 @@
       "line_number": 6,
       "clean_code": "<div className=\"p-4 border-b border-gray-200 flex-shrink-0\">",
       "buggy_code": "<div className=\"p-0 border-b border-gray-200 bg-gray-50\">",
-      "css_selector": ".sidebar-header",
+      "css_selector": "div.border-r > div:first-child",
       "bounding_box": {
         "x": 0,
         "y": 0,
@@ -121,12 +121,12 @@
       "line_number": 19,
       "clean_code": "<div className=\"flex-1 overflow-y-auto\">",
       "buggy_code": "<div className=\"flex-1 overflow-y-auto custom-scrollbar -mt-10\">",
-      "css_selector": ".contacts-list",
+      "css_selector": "div.border-r > div.overflow-y-auto",
       "bounding_box": {
         "x": 0,
-        "y": 46,
-        "width": 319,
-        "height": 674
+        "y": 86,
+        "width": 320,
+        "height": 634
       }
     },
     {
@@ -137,12 +137,12 @@
       "line_number": 5,
       "clean_code": "<div className={`flex ${alignment}`}>",
       "buggy_code": "<div className={`grid ${isMe ? 'justify-end' : 'justify-start'} mb-4 group`}>",
-      "css_selector": ".message-bubble",
+      "css_selector": "div.overflow-y-auto > div:first-child",
       "bounding_box": {
-        "x": 16,
-        "y": 800,
-        "width": 1248,
-        "height": 26
+        "x": 340,
+        "y": 100,
+        "width": 900,
+        "height": 100
       }
     },
     {
@@ -153,12 +153,12 @@
       "line_number": 11,
       "clean_code": "const bgColor = isOwn ? 'bg-indigo-600 text-white' : 'bg-white border border-gray-200 text-gray-800';",
       "buggy_code": "            ? 'bg-yellow-100 text-white rounded-br-sm'",
-      "css_selector": ".message-content",
+      "css_selector": "div.overflow-y-auto > div:first-child",
       "bounding_box": {
-        "x": 16,
-        "y": 800,
-        "width": 42,
-        "height": 26
+        "x": 340,
+        "y": 100,
+        "width": 900,
+        "height": 100
       }
     }
   ]
